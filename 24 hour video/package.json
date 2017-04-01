@@ -1,0 +1,19 @@
+{
+  "name": "24_hour_video",
+  "version": "1.0.0",
+  "description": "24 Hour Video Site",
+  "main": "index.js",
+  "local-web-server": {
+    "port": 8100,
+    "forbid": "*.json"
+  },
+  "scripts": {
+    "start": "ws",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stephen Moss",
+  "license": "ISC",
+  "devDependencies": {
+    "local-web-server": "^1.2.7"
+  }
+}

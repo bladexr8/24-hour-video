@@ -1,0 +1,25 @@
+{
+  "name": "get-video-list",
+  "version": "1.0.0",
+  "description": "List videos available in an S3 bucket",
+  "main": "index.js",
+  "scripts": {
+    "create": "aws lambda create-function --function-name get-video-list --handler index.handler --memory-size 128 --runtime nodejs6.10 --role arn:aws:iam::991202215447:role/lambda-s3-execution-role --timeout 3 --publish --zip-file fileb://Lambda-Deployment.zip",
+    "test": "run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "aws lambda update-function-code --function-name get-video-list --zip-file fileb://Lambda-Deployment.zip",
+    "precreate": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log"
+  },
+  "dependencies": {
+    "async": "^2.2.0",
+    "aws-sdk": "latest"
+  },
+  "author": "Stephen Moss",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "rewire": "^2.5.2",
+    "run-local-lambda": "^1.1.1",
+    "sinon": "^2.1.0"
+  }
+}
