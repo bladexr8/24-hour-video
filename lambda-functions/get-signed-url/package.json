@@ -11,6 +11,7 @@
     "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log"
   },
   "dependencies": {
+    "async": "^2.2.0",
     "aws-sdk": "latest"
   },
   "author": "Stephen Moss",
