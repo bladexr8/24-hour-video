@@ -62,3 +62,6 @@ typings/
 
 # ZIP files
 *.zip
+
+# Firebase Credentials file
+24-hour-video-77c88165040a.json
