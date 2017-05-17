@@ -1,0 +1,25 @@
+{
+  "name": "lambda-function-name",
+  "version": "1.0.0",
+  "description": "Description of function",
+  "main": "index.js",
+  "scripts": {
+    "create": "aws lambda create-function --function-name <<lambda-function-name>> --handler index.handler --memory-size 128 --runtime nodejs6.10 --role <<ARN of IAM Role to execute function>> --timeout 3 --publish --zip-file fileb://Lambda-Deployment.zip",
+    "test": "run-local-lambda --file index.js --event tests/event.json",
+    "deploy": "aws lambda update-function-code --function-name <<lambda-function-name> --zip-file fileb://Lambda-Deployment.zip",
+    "precreate": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log",
+    "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log"
+  },
+  "dependencies": {
+    "async": "^2.2.0",
+    "aws-sdk": "latest"
+  },
+  "author": "Stephen Moss",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "rewire": "^2.5.2",
+    "run-local-lambda": "^1.1.1",
+    "sinon": "^2.1.0"
+  }
+}
